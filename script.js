@@ -152,11 +152,22 @@ document.getElementById("inputKata").onsubmit = function (event) {
   let totalBaru = 0;
   let operasiDetailBaru = [];
 
-  for (let i = 0; i < angkaArray.length; i += 3) {
-    let grup = angkaArray.slice(i, i + 3);
-    let grupSum = grup.reduce((a, b) => a + b, 0);
-    totalBaru += grupSum;
-    operasiDetailBaru.push(`(${grup.join(" + ")})`);
+  for (let i = 0; i < angkaArray.length; i++) {
+    if (i % 2 === 1) {
+      totalBaru *= angkaArray[i];
+      if (i === angkaArray.length - 1) {
+        operasiDetailBaru.push(`${angkaArray[i]}`); // Mengalihkan hasil akhir jika indeks terakhir
+      } else {
+        operasiDetailBaru.push(`${angkaArray[i]} * `);
+      }
+    } else {
+      totalBaru += angkaArray[i];
+      if (i === angkaArray.length - 1) {
+        operasiDetailBaru.push(`${angkaArray[i]}`); // Menambahkan hasil akhir jika indeks terakhir
+      } else {
+        operasiDetailBaru.push(`${angkaArray[i]} + `);
+      }
+    }
   }
 
   let penjabaranOpBaru = operasiDetailBaru.join(" ");
