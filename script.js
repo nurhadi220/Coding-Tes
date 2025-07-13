@@ -87,7 +87,7 @@ document.getElementById("inputKata").onsubmit = function (event) {
   let total = parseInt(outputText[0]); //ambil angka pertama dari string
   let operasiDetail = [parseInt(outputText[0])]; //untuk menyimpan detail operasi berupa array
 
-  //penjabaran operasi dengan menjumlahkan dan mengurangkan sebuah nilai berdasarkan ganjil genap nya nilai
+  //penjabaran operasi dengan menjumlahkan dan mengurangkan sebuah nilai 
   for (let i = 1; i < outputText.length; i++) {
     let nilai = parseInt(outputText[i]);
     if (i % 2 === 1) {
